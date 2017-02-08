@@ -1,1 +1,3 @@
 # DevOpsL3
+
+.deploy, deploy.cmd and PostDePloy.cmd are the three files used for my custom deployment via Azure's Kudu.  The .deploy file indicates the name of deployment command code, which in this case is deploy.cmd.  .deploy and deploy.cmd are generated files from the Service Control Manager (SCM).  In this case, I extended deploy.cmd by adding functionality (in 4. Post deployment actions) to ensure the PostDeploymentActions directory (under deployments\tools) is created and copying the PostDeploy.cmd to that directory.  Any script or executable in the PostDeploymentActions directory is automatically executed, so we are using this fact to file off post build actions (such as minify and hashmarking and such).
